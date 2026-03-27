@@ -44,6 +44,7 @@ This project uses Machine Learning to predict student exam scores based on study
 * Model training and evaluation
 * Importance of real-world problem solving
 
-## 👨‍💻 Author
+## 👨‍💻 Name
 
 Rahul Kumar Pradhan
+25BAI10365
