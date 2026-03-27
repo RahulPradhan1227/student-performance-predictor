@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
+import pickle
 
 # Load dataset
 data = pd.read_csv("dataset.csv")
@@ -22,8 +23,15 @@ sleep = float(input("Sleep hours: "))
 attendance = float(input("Attendance (%): "))
 
 # Prediction
-result = model.predict([[study, sleep, attendance]])
+user_data=pd.DataFrame([[study, sleep, attendance]],columns=['study_hours', 'sleep_hours', 'attendance'])
+result=model.predict(user_data)
 print("Predicted Marks:", round(result[0], 2))
+
+# Save model
+with open("model.pkl", "wb") as f:
+    pickle.dump(model, f)
+
+print("Model saved as model.pkl")
 
 # Simple graph
 plt.scatter(data['study_hours'], data['marks'])
